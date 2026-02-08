@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Avances</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container-fluid px-4">
+        <div class="row g-4">
+            <div class="col-md-12" id="d_items">
+                <div class="col-sm-12 col-xl-12">
+                    <div class="bg-light rounded h-100 p-4 mt-4">
+
+                        <h3 class="main-titulo text-center mb-0"><i class="fa-solid fa-laptop-code"></i> Desarrollo </h5>
+                        <p class="mb-4 text-center fw-bold">Dashboard de Avances</p>
+
+                        <main class="dashboard-container">
+                            <div class="top-bar">
+                                <div class="view-switch-container">
+                                    <span>Tarjetas</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="viewSwitch">
+                                        <span class="slider round"></span>
+                                    </label>
+                                    <span>Tabla</span>
+                                </div>
+                                <div id="last-update-container" class="last-update-label">
+                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Cargando datos...
+                                </div>
+                            </div>
+
+                            <div id="gridView" class="grid-view-layout mb-5">
+                                <section class="card" id="avance">
+                                    <h2>Avance de Módulos</h2>
+                                    <div class="progress-grid" id="modules-container">
+                                        </div>
+                                </section>
+
+                                <section class="card" id="roadmap">
+                                    <h2>Hoja de Ruta de Lanzamiento</h2>
+                                    <div id="roadmap-container">
+                                        </div>
+                                </section>
+                            </div>
+
+                            <div id="tableView" class="table-view-container card mb-5">
+                                <h2>Detalle Completo del Proyecto</h2>
+                                <table class="custom-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Módulo</th>
+                                            <th>Fase</th>
+                                            <th>Inicio</th>
+                                            <th>Fin Objetivo</th>
+                                            <th>Horas</th>
+                                            <th>Estado</th>
+                                            <th>Avance</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-body">
+                                        </tbody>
+                                </table>
+                            </div>
+
+                            <hr />
+
+                            <div class="card mt-5">
+                                <h2>Actividad Reciente</h2>
+                                <div class="dt-filters-container">
+                                    <select id="filter-module" class="dt-filter-select">
+                                        <option value="">Todos los módulos</option>
+                                    </select>
+                                </div>
+                                <table id="activityTable" class="w-100 display">
+                                    <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>Developer</th>
+                                            <th>Module</th>
+                                            <th>Action</th>
+                                            <th>Card Render</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </main>
+
+                        <div class="modal fade" id="infoModal" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content" style="border-top: 5px solid var(--brand-orange);">
+                                    <div class="modal-header border-0 pb-0">
+                                        <h5 class="modal-title fw-bold" id="modalTitle">Título</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body pt-2">
+                                        <div id="modalDates" class="alert alert-light border text-muted py-2 px-3 mb-3" style="font-size: 0.9rem; display:none;"></div>
+                                        <div id="modalDescription" class="text-secondary" style="line-height: 1.6;"></div>
+                                    </div>
+                                    <div class="modal-footer border-0 pt-0"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    
+    <script type="module" src="dashboard.js"></script>
+</body>
+</html>
