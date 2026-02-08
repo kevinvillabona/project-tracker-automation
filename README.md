@@ -1,4 +1,4 @@
-# 🚀 Automated Project Tracker & Dashboard (JS Port)
+# Automated Project Tracker & Dashboard (JS Port)
 
 ## Sobre este Repositorio
 
